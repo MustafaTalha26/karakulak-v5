@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
+    <h:head>
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <title>Atıştırmalık</title>
+        <style>
+	    .p1 {
+		font-size: 1.5rem;
+	    }
+            .bd-header {
+                position: fixed;
+                top: 0;
+                /* rtl:begin:ignore */
+                right: 0;
+                left: 0;
+                /* rtl:end:ignore */
+                z-index: 1030;
+                grid-column: 1 / span 3;
+            }
+            .bd {
+                height: 4rem;
+                background-color: rgba(180, 180, 220);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 2px 0;
+            }
+	</style>
+    </h:head>
+    <h:body>
+        <nav class="navbar bd-header navbar-expand-lg navbar-light bg-dark">
+            <h:link class="navbar-brand text-white mx-3" value = "Navbar" outcome = "i2.xhtml" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-7">
+                    <li class="nav-item active">
+                        <h:link class="nav-link text-white" value = "Home" outcome = "i2.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Manav" outcome = "manav.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Elektronik" outcome = "elektronik.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Atıştırmalık" outcome = "atistirmalik.xhtml" />
+                    </li>
+                    <li class="nav-item dropdown">
+                        <h:link class="nav-link text-white" value = "Kişisel Bakım" outcome = "kisiselBakim.xhtml" />
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right mt-2 col-2">
+                    <h:form>
+                        <p class="text-white">#{val.name}</p>
+                    </h:form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right col-3">
+                    <h:form>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Sepetim" action="#{val.sepetToplam()}"/>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Hesabım" action="#{val.bilgiGoster()}"/>
+                        <h:commandButton class="btn btn-outline-danger mx-1 my-2 my-sm-0" value="Çıkış" action="index.xhtml"/>
+                    </h:form>
+                </ul> 
+            </div>
+        </nav>
+        <div class="px-5 py-5 my-5 text-center">
+	    <img class="img-fluid border d-block mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://testosteroneinformer.com/wp-content/uploads/2016/11/3059393817_458e933e03_b.jpg" alt="xd" width="400" height="400" loading="lazy"/>
+	    <h1 class="display-5 fw-bold">Atıştırmalık</h1>
+	    <p class="p1">"Favori atıştırmalıklarınızın hepsi burada."</p>
+        </div>
+        
+        <div class="bd"/>
+        
+        <div class="px-5 py-5 my-5 text-center mx-auto container row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/43/222-222/10770632966194.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Ülker çokoprens 300 gr</p>
+                  <p class="card-text">12 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="10" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/176/222-222/110000140290989.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Torku tuzlu çubuk kraker 32 gr</p>
+                  <p class="card-text">4 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="11" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/18/222-222/9789867098162.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Kahve Dünyası sütlü kuvertür 2500 gr</p>
+                  <p class="card-text">42 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="12" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/176/222-222/110000139885287.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Kinder C. 100 gr çikolata</p>
+                  <p class="card-text">25 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="13" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/42/222-222/10727907852338.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Eti Lilalif Kuru Meyveli Yulaf Bar 35 gr</p>
+                  <p class="card-text">8 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="14" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/56/222-222/11250235736114.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Kahve Dünyası Lavi sütlü dolgulu çikolata 300 gr</p>
+                  <p class="card-text">15 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="15" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/192/222-222/110000158998783.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Bahs yüksek protein bar 45gr</p>
+                  <p class="card-text">9 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="16" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/58/222-222/11331304325170.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Eti karam bitter çikolata 50gr</p>
+                  <p class="card-text">5 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="17" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/219/222-222/110000197415286.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Nestle Crunch çikolata 31,5gr</p>
+                  <p class="card-text">5 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="18" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+    </h:body>
+</html>
+

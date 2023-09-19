@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <title>Login</title>
+        <style>
+	    .p1 {
+		font-size: 1.5rem;
+	    }
+            .bd-header {
+                position: fixed;
+                top: 0;
+                /* rtl:begin:ignore */
+                right: 0;
+                left: 0;
+                /* rtl:end:ignore */
+                z-index: 1030;
+                grid-column: 1 / span 3;
+            }
+            .bd {
+                height: 4rem;
+                background-color: rgba(180, 180, 220);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 2px 0;
+            }
+            .center {
+                margin: auto;
+                width: 30%;
+                border: 3px solid green;
+                padding: 10px;
+            }
+	</style>
+    </h:head>
+    <h:body>
+        <div class="px-5 py-5 my-5 center">
+	    <h:form>
+                <p>Please Login</p>
+                <h:panelGrid columns="2" border="1">
+                    <h:outputText value="Email:"/>
+                    <h:inputText id="email" required="true" requiredMessage="Please enter your email" value="#{val.name}">
+                    </h:inputText>
+                    <h:outputText value="Password:"/>
+                    <h:inputText id="password" required="true" requiredMessage="Please your password" value="#{val.password}">
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Cancel" action="index"/>
+                <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Submit" action="#{val.response()}"/>
+            </h:form>
+        </div>
+    </h:body> 
+</html>
+

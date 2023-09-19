@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>signup form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h2>Signup Form</h2>
+          
+        <h:form>
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <h:panelGrid columns="2" border="1">
+                <h:outputText value="First Name:"/>
+                <h:inputText id="firstName" required="true" requiredMessage="Please enter your first name" value="#{registerBean.firstName}">
+                </h:inputText>
+                
+                <h:outputText value="Last Name:"/>
+                <h:inputText id="lastName" required="true" requiredMessage="Please enter your last name" value="#{registerBean.lastName}">
+                </h:inputText>
+                
+                <h:outputText value="Password:"/>
+                <h:inputText id="password"  required="true" requiredMessage="Please enter your password" value="#{registerBean.password}">
+                </h:inputText>
+                
+                <h:outputText value="Address:"/>
+                <h:inputText id="address" required="true" requiredMessage="Please enter your address" value="#{registerBean.address}">
+                </h:inputText>
+                
+                <h:outputText value="Email:"/>
+                <h:inputText id="email" required="true" requiredMessage="Please enter your email" value="#{registerBean.email}">
+                </h:inputText>
+                
+                <h:outputText value="Mobile No:"/>
+                <h:inputText id="mobil" required="true" requiredMessage="Please enter your mobile no" value="#{registerBean.mobil}">
+                </h:inputText>
+            </h:panelGrid>
+            <br></br>
+                <h:commandButton value="cancel" action="index"/>
+                <h:commandButton value="submit" action="#{registerBean.init()}"/>
+                         
+          </h:form>          
+    </h:body>
+</html>

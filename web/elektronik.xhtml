@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
+    <h:head>
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <title>Elektronik</title>
+        <style>
+	    .p1 {
+		font-size: 1.5rem;
+	    }
+            .bd-header {
+                position: fixed;
+                top: 0;
+                /* rtl:begin:ignore */
+                right: 0;
+                left: 0;
+                /* rtl:end:ignore */
+                z-index: 1030;
+                grid-column: 1 / span 3;
+            }
+            .bd {
+                height: 4rem;
+                background-color: rgba(180, 180, 220);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 2px 0;
+            }
+	</style>
+    </h:head>
+    <h:body>
+        <nav class="navbar bd-header navbar-expand-lg navbar-light bg-dark">
+            <h:link class="navbar-brand text-white mx-3" value = "Navbar" outcome = "i2.xhtml" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-7">
+                    <li class="nav-item active">
+                        <h:link class="nav-link text-white" value = "Home" outcome = "i2.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Manav" outcome = "manav.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Elektronik" outcome = "elektronik.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Atıştırmalık" outcome = "atistirmalik.xhtml" />
+                    </li>
+                    <li class="nav-item dropdown">
+                        <h:link class="nav-link text-white" value = "Kişisel Bakım" outcome = "kisiselBakim.xhtml" />
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right mt-2 col-2">
+                    <h:form>
+                        <p class="text-white">#{val.name}</p>
+                    </h:form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right col-3">
+                    <h:form>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Sepetim" action="#{val.sepetToplam()}"/>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Hesabım" action="#{val.bilgiGoster()}"/>
+                        <h:commandButton class="btn btn-outline-danger mx-1 my-2 my-sm-0" value="Çıkış" action="index.xhtml"/>
+                    </h:form>
+                </ul> 
+            </div>
+        </nav>
+        <div class="px-5 py-5 my-5 text-center">
+	    <img class="img-fluid border d-block mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://blessingstelecom.com/img/developerimg/choco_blessingstelecom_20200113100659_db/mebase/CustomSectionStyle/Images/original_200219061202_5e4cd1b2c5eb3.jpg" alt="xd" width="400" height="400" loading="lazy"/>
+	    <h1 class="display-5 fw-bold">Elektronik</h1>
+	    <p class="p1">"Son teknoloji tüm elektronik ürünler burada."</p>
+        </div>
+        
+        <div class="bd"/>
+        
+        <div class="px-5 py-5 my-5 text-center mx-auto container row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/37/222-222/10566990757938.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Logitech M220 sessiz kompakt kablosuz mouse</p>
+                  <p class="card-text">250 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="19" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/32/222-222/10376494710834.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Anker SoundCore Life Q10 Bluetooth Kulaklık</p>
+                  <p class="card-text">550 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="20" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/18/222-222/9793030291506.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">JBL C100SIUBLK kulakiçi kablolu siyah kulaklık</p>
+                  <p class="card-text">450 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="21" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/2/222-222/9565998972978.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Seagate Barracuda 1TB 3.5 sabit disk</p>
+                  <p class="card-text">530 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="22" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/120/222-222/110000069569291.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Apple iPad 9. nesil 64GB tablet</p>
+                  <p class="card-text">5500 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="23" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/36/222-222/10503079133234.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Arctic MX-4 termal macun 4gr</p>
+                  <p class="card-text">40 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="24" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/48/222-222/10940080029746.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Apple 20W USB-C güç adaptörü</p>
+                  <p class="card-text">230 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="25" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/84/222-222/110000026151715.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Oppo A74 128GB</p>
+                  <p class="card-text">4850 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="26" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class=" mx-auto mb-4 my-4 rounded-3 shadow-lg" src="https://productimages.hepsiburada.net/s/22/222-222/9957338677298.jpg/format:webp" alt="xd" width="200" height="200" loading="lazy"/>
+                <div class="card-body">
+                  <p class="card-text">Xiaomi Mi Box S 4K android Tv box</p>
+                  <p class="card-text">680 ₺</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <h:form>
+                            <h:inputText id="password" required="true" requiredMessage="miktar gir" value="#{val.eklenecek_miktar}"/>
+                            <h:commandButton  value="Sepete ekle" action="#{val.siparişEkle()}">
+                                <f:setPropertyActionListener target="#{val.eklenecek_ürün}" value="27" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+    </h:body>
+</html>
+

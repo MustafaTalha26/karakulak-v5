@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Karakulak-Sepetim</title>
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <style>
+	    .p1 {
+		font-size: 1.5rem;
+	    }
+            .bd-header {
+                position: fixed;
+                top: 0;
+                /* rtl:begin:ignore */
+                right: 0;
+                left: 0;
+                /* rtl:end:ignore */
+                z-index: 1030;
+                grid-column: 1 / span 3;
+            }
+            .bd {
+                height: 4rem;
+                background-color: rgba(180, 180, 220);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 2px 0;
+            }
+            .center {
+                width: 30%;
+                border: 3px solid green;
+                padding: 10px;
+            }
+	</style>
+    </h:head>
+    <h:body>
+        <nav class="navbar bd-header navbar-expand-lg navbar-light bg-dark">
+            <h:link class="navbar-brand text-white mx-3" value = "Navbar" outcome = "i2.xhtml" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-7">
+                    <li class="nav-item active">
+                        <h:link class="nav-link text-white" value = "Home" outcome = "i2.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Manav" outcome = "manav.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Elektronik" outcome = "elektronik.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Atıştırmalık" outcome = "atistirmalik.xhtml" />
+                    </li>
+                    <li class="nav-item dropdown">
+                        <h:link class="nav-link text-white" value = "Kişisel Bakım" outcome = "kisiselBakim.xhtml" />
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right mt-2 col-2">
+                    <h:form>
+                        <p class="text-white">#{val.name}</p>
+                    </h:form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right col-3">
+                    <h:form>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Sepetim" action="#{val.sepetToplam()}"/>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Hesabım" action="#{val.bilgiGoster()}"/>
+                        <h:commandButton class="btn btn-outline-danger mx-1 my-2 my-sm-0" value="Çıkış" action="index.xhtml"/>
+                    </h:form>
+                </ul> 
+            </div>
+        </nav>
+        <div class="px-2 py-5 my-5 row container mx-auto">
+            <div class="col-md-7 px-5 py-5 my-3">
+                <p>Cüzdan Bakiyem: <b> #{val.bakiye()} </b></p>
+	    <h:dataTable value="#{val.sepetGoster()}" var="myvariable" border="0" cellpadding="10" cellspacing="3" >
+        <h:column>
+            <f:facet name="header">Sipariş Kodu</f:facet>
+            #{myvariable.ORDER_ID}
+            </h:column>
+        <h:column>
+            <f:facet name="header">Ürün Kodu</f:facet>
+            #{myvariable.URUN_KODU}
+            </h:column>
+        <h:column>
+            <f:facet name="header">Miktar</f:facet>
+            #{myvariable.Miktar}
+            </h:column>
+        <h:column>
+            <f:facet name="header">Tutar</f:facet>
+            #{myvariable.COST}
+            </h:column>
+        <h:column>
+            <h:form>
+                <h:commandButton  value="Sepetten kaldır" action="#{val.sil()}">
+                    <f:setPropertyActionListener target="#{val.silenecek_order_id}" value="#{myvariable.ORDER_ID}" />
+                </h:commandButton>
+            </h:form>
+        </h:column>
+        </h:dataTable>
+        <h:form>
+        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Geri" action="i2"/>
+        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Kapıda Öde" action="#{val.siparişÖde()}"/>
+        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Cüzdandan Öde" action="#{val.cüzdanileÖde()}"/>
+        </h:form>
+        <p>#{val.odemeUyarı}</p>
+        <p>Toplam Tutar: #{val.sepetTutar}</p>
+            </div>
+            <div class="col-md-5 px-5 py-5 my-3 container ">
+                <div class="row">
+                    <p >Cüzdan Bakiyem: <b> #{val.bakiye()} </b></p>
+                </div>
+                <div class="row">
+                    <p>Bakiye Yüklemek için miktar giriniz.</p>
+                </div>
+                <h:form>
+                <div class ="container row">
+                    <div class = "mx-1 my-2 my-sm-0">
+                        <h:inputText id="tutaryükle" required="true" requiredMessage="Please valid amount" value="#{val.yuklenecek_bakiye}">
+                        </h:inputText>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Yükle" action="#{val.bakiyeyükle()}"/>
+                    </div>
+                </div>
+                </h:form>
+            </div>
+        </div>
+        
+    </h:body>
+</html>
+

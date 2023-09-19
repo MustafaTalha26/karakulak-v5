@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+        
+    <h:head>
+        <link href="bootstrap.css" rel="stylesheet"/>
+        <title>Karakulak</title>
+        <style>
+	    .p1 {
+		font-size: 1.5rem;
+	    }
+            .bd-header {
+                position: fixed;
+                top: 0;
+                /* rtl:begin:ignore */
+                right: 0;
+                left: 0;
+                /* rtl:end:ignore */
+                z-index: 1030;
+                grid-column: 1 / span 3;
+            }
+            .bd {
+                height: 4rem;
+                background-color: rgba(180, 180, 220);
+                border: solid rgba(0, 0, 0, .15);
+                border-width: 2px 0;
+            }
+	</style>
+    </h:head>
+    <h:body>
+        <nav class="navbar bd-header navbar-expand-lg navbar-light bg-dark">
+            <h:link class="navbar-brand text-white mx-3" value = "Navbar" outcome = "i2.xhtml" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-7">
+                     <li class="nav-item active">
+                        <h:link class="nav-link text-white" value = "Home" outcome = "i2.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Manav" outcome = "manav.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Elektronik" outcome = "elektronik.xhtml" />
+                    </li>
+                    <li class="nav-item">
+                        <h:link class="nav-link text-white" value = "Atıştırmalık" outcome = "atistirmalik.xhtml" />
+                    </li>
+                    <li class="nav-item dropdown">
+                        <h:link class="nav-link text-white" value = "Kişisel Bakım" outcome = "kisiselBakim.xhtml" />
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right mt-2 col-2">
+                    <h:form>
+                        <p class="text-white">#{val.name}</p>
+                    </h:form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right col-3">
+                    <h:form>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Sepetim" action="#{val.sepetToplam()}"/>
+                        <h:commandButton class="btn btn-outline-success mx-1 my-2 my-sm-0" value="Hesabım" action="#{val.bilgiGoster()}"/>
+                        <h:commandButton class="btn btn-outline-danger mx-1 my-2 my-sm-0" value="Çıkış" action="index.xhtml"/>
+                    </h:form>
+                </ul> 
+            </div>
+        </nav>
+        <div class="px-5 py-5 my-5 text-center">
+	    <img class="img-fluid border d-block mx-auto mb-4 my-4 rounded-3 shadow-lg" src="http://ukalahayvan.com/wp-content/uploads/2016/03/proxy-768x578.jpg" alt="xd" width="400" height="400" loading="lazy"/>
+	    <h1 class="display-5 fw-bold">The Caracal</h1>
+	    <p class="p1">"Caracal Caracal"</p>
+        </div>
+        
+        <div class="bd"/>
+        
+        <div class="px-5 py-5 my-5 text-center">
+	    <img class="img-fluid border d-block mx-auto mb-4 my-4 rounded-3 shadow-lg" src="http://ukalahayvan.com/wp-content/uploads/2016/03/proxy-768x578.jpg" alt="xd" width="400" height="400" loading="lazy"/>
+	    <h1 class="display-5 fw-bold">The Caracal</h1>
+	    <p class="p1">"Caracal Caracal"</p>
+        </div>
+        
+    </h:body>
+</html>
+
